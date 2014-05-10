@@ -1,5 +1,8 @@
 function isPrime(n) {
-    if (n % 2 === 0) {
+    if (n === 2) {
+        return true;
+    }
+    if (n % 2 === 0 || n === 1) {
         return false;
     }
     for (var i = 3; i <= Math.sqrt(n); i += 2) {

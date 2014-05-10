@@ -1,4 +1,7 @@
 function divisibleByFirstTwenty(n) {
+    if (n === 0) {
+        return false;
+    }
     for (var i = 1; i <= 20; i++) {
         if (n % i !== 0) {
             return false;
@@ -7,16 +10,23 @@ function divisibleByFirstTwenty(n) {
     return true;
 }
 
+function factorial(n) {
+    if (n === 1) {
+        return 1;
+    }
+    else {
+        return n * factorial(n - 1);
+    }
+}
+
 function pr5() {
-    var max = 0;
-    for (var i = 1; i < 1000; i++) {
-        for (var j = 1; j < 1000; j++) {
-            if (isPalindrome(i * j) && i * j > max) {
-                max = i * j;
-            }
+    var max = factorial(20);
+    for (var i = 0; i < max; i += 20) {
+        if (divisibleByFirstTwenty(i)) {
+            return i;
         }
     }
     return max;
 }
 
-console.log(divisibleByFirstTwenty(121645100408832000));
+console.log(pr5());
